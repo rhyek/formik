@@ -5724,7 +5724,11 @@ var Formik = (function (_super) {
             if (e && e.preventDefault) {
                 e.preventDefault();
             }
-            _this.submitForm();
+            _this.submitForm().catch(function (error) {
+                if (error.name !== 'ValidationError') {
+                    throw error;
+                }
+            });
         };
         _this.submitForm = function () {
             _this.setState({

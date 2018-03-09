@@ -188,8 +188,8 @@ export declare class Formik<
       submitForm(): Promise<void>;
       setFormikState<
         K extends
-          | 'values'
           | 'error'
+          | 'values'
           | 'errors'
           | 'touched'
           | 'isSubmitting'
@@ -203,8 +203,8 @@ export declare class Formik<
       ): void;
       setFormikState<
         K extends
-          | 'values'
           | 'error'
+          | 'values'
           | 'errors'
           | 'touched'
           | 'isSubmitting'
@@ -312,8 +312,8 @@ export declare class Formik<
     submitForm(): Promise<void>;
     setFormikState<
       K extends
-        | 'values'
         | 'error'
+        | 'values'
         | 'errors'
         | 'touched'
         | 'isSubmitting'
@@ -327,8 +327,8 @@ export declare class Formik<
     ): void;
     setFormikState<
       K extends
-        | 'values'
         | 'error'
+        | 'values'
         | 'errors'
         | 'touched'
         | 'isSubmitting'
