@@ -82,6 +82,10 @@ export interface FormikSharedConfig {
 }
 export interface FormikConfig<Values> extends FormikSharedConfig {
   initialValues: Values;
+  onChange?: (
+    e: React.ChangeEvent<any>,
+    formikActions: FormikActions<Values>
+  ) => void;
   onReset?: (values: Values, formikActions: FormikActions<Values>) => void;
   onSubmit: (values: Values, formikActions: FormikActions<Values>) => void;
   component?: React.ComponentType<FormikProps<Values>> | React.ReactNode;
@@ -113,6 +117,7 @@ export declare class Formik<
     validateOnBlur: PropTypes.Requireable<any>;
     isInitialValid: PropTypes.Requireable<any>;
     initialValues: PropTypes.Requireable<any>;
+    onChange: PropTypes.Requireable<any>;
     onReset: PropTypes.Requireable<any>;
     onSubmit: PropTypes.Validator<any>;
     validationSchema: PropTypes.Requireable<any>;
@@ -142,9 +147,7 @@ export declare class Formik<
       registerField: (name: string, resetFn: () => void) => void;
       unregisterField: (name: string) => void;
       handleBlur: (eventOrString: any) => void | ((e: any) => void);
-      handleChange: (
-        eventOrString: any
-      ) => void | ((e: React.ChangeEvent<any>) => void);
+      handleChange: (e: React.ChangeEvent<any>) => void;
       handleReset: () => void;
       handleSubmit: (e: React.FormEvent<HTMLFormElement> | undefined) => void;
       validateOnChange: (FormikConfig<Values> & ExtraProps)['validateOnChange'];
@@ -266,9 +269,7 @@ export declare class Formik<
     registerField: (name: string, resetFn: () => void) => void;
     unregisterField: (name: string) => void;
     handleBlur: (eventOrString: any) => void | ((e: any) => void);
-    handleChange: (
-      eventOrString: any
-    ) => void | ((e: React.ChangeEvent<any>) => void);
+    handleChange: (e: React.ChangeEvent<any>) => void;
     handleReset: () => void;
     handleSubmit: (e: React.FormEvent<HTMLFormElement> | undefined) => void;
     validateOnChange: (FormikConfig<Values> & ExtraProps)['validateOnChange'];

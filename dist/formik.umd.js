@@ -5882,7 +5882,11 @@ var Formik = (function (_super) {
             };
         };
         _this.getFormikBag = function () {
-            return __assign({}, _this.state, _this.getFormikActions(), _this.getFormikComputedProps(), { registerField: _this.registerField, unregisterField: _this.unregisterField, handleBlur: _this.handleBlur, handleChange: _this.handleChange, handleReset: _this.handleReset, handleSubmit: _this.handleSubmit, validateOnChange: _this.props.validateOnChange, validateOnBlur: _this.props.validateOnBlur });
+            return __assign({}, _this.state, _this.getFormikActions(), _this.getFormikComputedProps(), { registerField: _this.registerField, unregisterField: _this.unregisterField, handleBlur: _this.handleBlur, handleChange: !_this.props.onChange
+                    ? _this.handleChange
+                    : function (e) {
+                        _this.props.onChange(e, _this.getFormikActions());
+                    }, handleReset: _this.handleReset, handleSubmit: _this.handleSubmit, validateOnChange: _this.props.validateOnChange, validateOnBlur: _this.props.validateOnBlur });
         };
         _this.state = {
             values: props.initialValues || {},
@@ -5939,6 +5943,7 @@ var Formik = (function (_super) {
         validateOnBlur: index_6,
         isInitialValid: index_2([index_5, index_6]),
         initialValues: index_1,
+        onChange: index_5,
         onReset: index_5,
         onSubmit: index_5.isRequired,
         validationSchema: index_2([index_5, index_1]),
