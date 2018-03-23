@@ -147,7 +147,9 @@ export declare class Formik<
       registerField: (name: string, resetFn: () => void) => void;
       unregisterField: (name: string) => void;
       handleBlur: (eventOrString: any) => void | ((e: any) => void);
-      handleChange: (e: React.ChangeEvent<any>) => void;
+      handleChange: (
+        eventOrString: any
+      ) => void | ((e: React.ChangeEvent<any>) => void);
       handleReset: () => void;
       handleSubmit: (e: React.FormEvent<HTMLFormElement> | undefined) => void;
       validateOnChange: (FormikConfig<Values> & ExtraProps)['validateOnChange'];
@@ -269,7 +271,9 @@ export declare class Formik<
     registerField: (name: string, resetFn: () => void) => void;
     unregisterField: (name: string) => void;
     handleBlur: (eventOrString: any) => void | ((e: any) => void);
-    handleChange: (e: React.ChangeEvent<any>) => void;
+    handleChange: (
+      eventOrString: any
+    ) => void | ((e: React.ChangeEvent<any>) => void);
     handleReset: () => void;
     handleSubmit: (e: React.FormEvent<HTMLFormElement> | undefined) => void;
     validateOnChange: (FormikConfig<Values> & ExtraProps)['validateOnChange'];

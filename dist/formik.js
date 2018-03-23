@@ -5884,8 +5884,16 @@ var Formik = (function (_super) {
         _this.getFormikBag = function () {
             return __assign({}, _this.state, _this.getFormikActions(), _this.getFormikComputedProps(), { registerField: _this.registerField, unregisterField: _this.unregisterField, handleBlur: _this.handleBlur, handleChange: !_this.props.onChange
                     ? _this.handleChange
-                    : function (e) {
-                        _this.props.onChange(e, _this.getFormikActions());
+                    : function (eventOrString) {
+                        var result = _this.handleChange(eventOrString);
+                        if (typeof result === 'function') {
+                            return function (e) {
+                                result(e);
+                                _this.props.onChange(e, _this.getFormikActions());
+                            };
+                        }
+                        _this.props.onChange(eventOrString, _this.getFormikActions());
+                        return;
                     }, handleReset: _this.handleReset, handleSubmit: _this.handleSubmit, validateOnChange: _this.props.validateOnChange, validateOnBlur: _this.props.validateOnBlur });
         };
         _this.state = {
